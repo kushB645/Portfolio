@@ -94,7 +94,7 @@ export default function Body({ theme }) {
         </a>
 
         <a
-          href="/Kush-Bhardwaj-Resume.pdf"
+          href="/Kush_s_resume.pdf"
           target="_blank"
           rel="noreferrer"
           className={`flex items-center gap-2 px-4 py-2 rounded-md text-xs font-semibold transition-colors ${theme.btnPrimary}`}
