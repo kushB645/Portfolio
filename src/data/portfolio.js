@@ -1,9 +1,32 @@
 export const NAV = [
   { id: "about", label: "about.js" },
+  { id: "experience", label: "experience.js" },
   { id: "skills", label: "skills.js" },
   { id: "projects", label: "projects.js" },
   { id: "certs", label: "certs.js" },
   { id: "contact", label: "contact.js" },
+];
+
+export const EXPERIENCE = [
+  {
+    role: "Web Development Intern",
+    company: "Employment Express Verband LLP",
+    duration: "Aug 2026 – Present",
+    bullets: [
+      "Develop and improve frontend interfaces by resolving UI, responsiveness, layout, navigation, and cross-device compatibility issues.",
+      "Perform technical and on-page SEO audits using Screaming Frog to identify broken links, missing metadata, redirects, indexing issues, and sitemap/robots.txt problems.",
+      "Conduct website audits covering UI, usability, accessibility, performance, and technical issues across multiple pages.",
+      "Implement and verify frontend and SEO fixes based on audit findings to improve website quality, usability, and search visibility.",
+      "Prepare detailed SEO and website audit reports documenting issues, fixes, observations, and actionable recommendations.",
+    ],
+    stack: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "SEO",
+      "Screaming Frog",
+    ],
+  },
 ];
 
 export const PROJECTS = [

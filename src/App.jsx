@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Body from "./components/sections/Body";
 import About from "./components/sections/About";
+import Experience from "./components/sections/Experience";
 import Skills from "./components/sections/Skills";
 import Projects from "./components/sections/Projects";
 import Certifications from "./components/sections/Certifications";
@@ -56,10 +57,13 @@ function Portfolio() {
       };
 
   return (
-    <div className={`min-h-screen font-mono transition-colors duration-300 ${theme.page}`}>
+    <div
+      className={`min-h-screen font-mono transition-colors duration-300 ${theme.page}`}
+    >
       <Navbar theme={theme} />
       <Body theme={theme} />
       <About theme={theme} />
+      <Experience theme={theme} />
       <Skills theme={theme} />
       <Projects theme={theme} />
       <Certifications theme={theme} />
