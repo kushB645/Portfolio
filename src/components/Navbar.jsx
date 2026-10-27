@@ -1,12 +1,10 @@
-import { Circle } from "lucide-react";
+import { Circle, Mail } from "lucide-react";
 import { NAV } from "../data/portfolio";
 import { useActiveSection } from "../hooks/useActiveSection";
-import { useTheme } from "../context/ThemeContext";
 import ThemeToggle from "./ui/ThemeToggle";
 
 export default function Navbar({ theme }) {
   const active = useActiveSection(NAV);
-  const { dark } = useTheme();
 
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -34,6 +32,14 @@ export default function Navbar({ theme }) {
             {item.label}
           </button>
         ))}
+
+        <button
+          onClick={() => scrollTo("contact")}
+          className={`shrink-0 flex items-center gap-2 px-3 py-2 rounded-md text-xs font-semibold transition-colors ${theme.btnPrimary}`}
+        >
+          <Mail className="w-3.5 h-3.5" />
+          Hire me
+        </button>
 
         <ThemeToggle theme={theme} />
       </div>
