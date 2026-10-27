@@ -67,19 +67,19 @@ export default function ContactForm({ theme }) {
   };
 
   const fieldClass = (field) =>
-    `w-full rounded-md border px-3 py-2 text-xs outline-none transition-colors ${theme.inputBg} ${
+    `w-full rounded-md border px-3.5 py-2.5 text-sm sm:text-xs outline-none transition-colors ${theme.inputBg} ${
       errors[field] ? "border-rose-500/60" : theme.inputBorder
     }`;
 
   return (
-    <form onSubmit={handleSubmit} className={`rounded-lg border p-6 sm:p-8 ${theme.border} ${theme.card}`}>
-      <p className={`text-sm mb-5 ${theme.textBody}`}>
+    <form onSubmit={handleSubmit} className={`rounded-lg border p-4 sm:p-6 md:p-8 ${theme.border} ${theme.card}`}>
+      <p className={`text-xs sm:text-sm mb-4 sm:mb-5 leading-relaxed ${theme.textBody}`}>
         Open to internship and entry-level frontend roles — send me a message directly.
       </p>
 
-      <div className="grid sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
         <div>
-          <label className={`block text-[11px] mb-1.5 ${theme.textDim}`} htmlFor="name">
+          <label className={`block text-[11px] font-mono mb-1.5 ${theme.textDim}`} htmlFor="name">
             Name
           </label>
           <input
@@ -94,7 +94,7 @@ export default function ContactForm({ theme }) {
         </div>
 
         <div>
-          <label className={`block text-[11px] mb-1.5 ${theme.textDim}`} htmlFor="email">
+          <label className={`block text-[11px] font-mono mb-1.5 ${theme.textDim}`} htmlFor="email">
             Email
           </label>
           <input
@@ -109,8 +109,8 @@ export default function ContactForm({ theme }) {
         </div>
       </div>
 
-      <div className="mt-4">
-        <label className={`block text-[11px] mb-1.5 ${theme.textDim}`} htmlFor="message">
+      <div className="mt-3.5 sm:mt-4">
+        <label className={`block text-[11px] font-mono mb-1.5 ${theme.textDim}`} htmlFor="message">
           Message
         </label>
         <textarea
@@ -138,7 +138,7 @@ export default function ContactForm({ theme }) {
       <button
         type="submit"
         disabled={isSubmitting}
-        className={`mt-5 flex items-center gap-2 px-4 py-2 rounded-md text-xs font-semibold transition-colors ${theme.btnPrimary}`}
+        className={`mt-5 w-full sm:w-auto justify-center flex items-center gap-2 px-4 py-2.5 rounded-md text-xs font-semibold transition-all ${theme.btnPrimary} shadow-sm active:scale-95`}
       >
         {sent ? (
           <>
@@ -146,7 +146,7 @@ export default function ContactForm({ theme }) {
           </>
         ) : isSubmitting ? (
           <>
-            <Send className="w-3.5 h-3.5" /> Sending...
+            <Send className="w-3.5 h-3.5 animate-pulse" /> Sending...
           </>
         ) : (
           <>

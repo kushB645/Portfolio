@@ -24,3 +24,12 @@ button {
 ::selection {
   background: rgba(99, 102, 241, 0.35);
 }
+
+/* Custom scrollbar utility for tab strips */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

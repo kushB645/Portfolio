@@ -3,7 +3,7 @@ export const NAV = [
   { id: "experience", label: "experience.js" },
   { id: "skills", label: "skills.js" },
   { id: "projects", label: "projects.js" },
-  { id: "certs", label: "certs.js" },
+  { id: "certs", label: "certificate.js" },
   { id: "contact", label: "contact.js" },
 ];
 
@@ -13,12 +13,12 @@ export const EXPERIENCE = [
     company: "Employment Express Verband LLP",
     duration: "Aug 2026 – Present",
     bullets: [
-      " Contributed to building Mylat, a new company product from the ground up, focusing on frontend development and UI implementation",
-      "Developed a responsive landing page for Annadhara Nepal’s flood-relief campaign, creating a campaign-focused web experience.",
-      " Developed and integrated a blog page for AtRisk AI, supporting content publishing and improving website content organization.",
-      " Redesigned the Anitech website UI, improving page layouts, navigation, visual consistency, and responsive behavior across devices.",
-      " Conducted technical and on-page SEO audits for AtRisk AI using Screaming Frog, identifying issues related to metadata, broken links, redirects, indexing, and site structure.",
-      " Audited website usability, accessibility, and frontend quality, implementing fixes to improve responsiveness and user experience."
+      "Contributed to building Mylat, a new company product from the ground up, focusing on frontend development and UI implementation.",
+      "Developed a responsive landing page for Annadhara Nepal's flood-relief campaign, creating a campaign-focused web experience.",
+      "Developed and integrated a blog page for AtRisk AI, supporting content publishing and improving website content organization.",
+      "Redesigned the Anitech website UI, improving page layouts, navigation, visual consistency, and responsive behavior across devices.",
+      "Conducted technical and on-page SEO audits for AtRisk AI using Screaming Frog, identifying issues related to metadata, broken links, redirects, indexing, and site structure.",
+      "Audited website usability, accessibility, and frontend quality, implementing fixes to improve responsiveness and user experience."
     ],
     stack: [
       "HTML",

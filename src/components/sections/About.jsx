@@ -10,15 +10,15 @@ export default function About({ theme }) {
   return (
     <Section id="about" tab="about.js" title="// about" theme={theme}>
       <div
-        className={`rounded-lg border p-5 sm:p-6 ${theme.border} ${theme.card}`}
+        className={`rounded-lg border p-4 sm:p-6 md:p-8 transition-colors ${theme.border} ${theme.card}`}
       >
         <p
-          className={`text-2xl font-semibold tracking-tight mb-5 ${theme.textPrimary}`}
+          className={`text-xl sm:text-2xl font-semibold tracking-tight mb-4 sm:mb-5 ${theme.textPrimary}`}
         >
           Hey, I&apos;m Kush.
         </p>
 
-        <div className={`space-y-4 text-sm leading-7 ${theme.textBody}`}>
+        <div className={`space-y-3.5 sm:space-y-4 text-xs sm:text-sm leading-6 sm:leading-7 ${theme.textBody}`}>
           <p>
             I&apos;m a frontend developer focused on building fast, responsive,
             and user-friendly web applications.
@@ -48,35 +48,35 @@ export default function About({ theme }) {
           </p>
         </div>
 
-        <div className="mt-6 flex flex-wrap gap-4 text-xs">
+        <div className="mt-5 sm:mt-6 flex flex-wrap gap-3 sm:gap-4 text-xs">
           <a
             href={SOCIAL_LINKS.linkedin}
             target="_blank"
             rel="noreferrer"
-            className={`flex items-center gap-2 underline underline-offset-4 ${theme.textPrimary} ${theme.hoverText}`}
+            className={`flex items-center gap-2 underline underline-offset-4 py-1 ${theme.textPrimary} ${theme.hoverText}`}
           >
             <FaLinkedinIn className="w-3.5 h-3.5" />
-            LinkedIn
+            <span>LinkedIn</span>
           </a>
 
           <a
             href={SOCIAL_LINKS.github}
             target="_blank"
             rel="noreferrer"
-            className={`flex items-center gap-2 underline underline-offset-4 ${theme.textPrimary} ${theme.hoverText}`}
+            className={`flex items-center gap-2 underline underline-offset-4 py-1 ${theme.textPrimary} ${theme.hoverText}`}
           >
             <FaGithub className="w-3.5 h-3.5" />
-            GitHub
+            <span>GitHub</span>
           </a>
         </div>
 
         <p
-          className={`pt-5 mt-5 border-t ${theme.border} text-sm ${theme.textBody}`}
+          className={`pt-4 sm:pt-5 mt-4 sm:mt-5 border-t ${theme.border} text-xs sm:text-sm ${theme.textBody}`}
         >
           Looking to collaborate?{" "}
           <button
             onClick={() => scrollTo("contact")}
-            className={`underline underline-offset-4 ${theme.textPrimary} ${theme.hoverText}`}
+            className={`underline underline-offset-4 font-medium ${theme.textPrimary} ${theme.hoverText}`}
           >
             Check the Contact page
           </button>
