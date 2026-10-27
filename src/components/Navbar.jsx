@@ -14,7 +14,7 @@ export default function Navbar({ theme }) {
     <header
       className={`sticky top-0 z-50 border-b backdrop-blur ${theme.border} ${theme.headerBg}`}
     >
-      <div className="max-w-5xl mx-auto flex items-center gap-1 px-4 overflow-x-auto">
+      <div className="max-w-5xl mx-auto flex flex-wrap items-center gap-x-1 px-4">
         <div className={`flex items-center gap-2 pr-4 py-3 shrink-0 ${theme.textDim}`}>
           <Circle className="w-2.5 h-2.5 fill-rose-500 text-rose-500" />
           <Circle className="w-2.5 h-2.5 fill-amber-400 text-amber-400" />
@@ -33,15 +33,16 @@ export default function Navbar({ theme }) {
           </button>
         ))}
 
-        <button
-          onClick={() => scrollTo("contact")}
-          className={`shrink-0 flex items-center gap-2 px-3 py-2 rounded-md text-xs font-semibold transition-colors ${theme.btnPrimary}`}
-        >
-          <Mail className="w-3.5 h-3.5" />
-          Hire me
-        </button>
-
-        <ThemeToggle theme={theme} />
+        <div className="ml-auto flex shrink-0 items-center gap-2">
+          <ThemeToggle theme={theme} />
+          <button
+            onClick={() => scrollTo("contact")}
+            className={`shrink-0 flex items-center gap-2 px-3 py-2 rounded-md text-xs font-semibold transition-colors ${theme.btnPrimary}`}
+          >
+            <Mail className="w-3.5 h-3.5" />
+            Hire me
+          </button>
+        </div>
       </div>
     </header>
   );
