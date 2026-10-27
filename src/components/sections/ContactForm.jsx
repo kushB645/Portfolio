@@ -1,14 +1,17 @@
 import { useState } from "react";
 import { Check, Send } from "lucide-react";
-import { CONTACT_EMAIL } from "../../data/portfolio";
 
 export default function ContactForm({ theme }) {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState({});
   const [sent, setSent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const update = (field) => (event) => {
     setForm((current) => ({ ...current, [field]: event.target.value }));
+    setSent(false);
+    setSubmitError("");
 
     if (errors[field]) {
       setErrors((current) => ({ ...current, [field]: null }));
@@ -32,20 +35,35 @@ export default function ContactForm({ theme }) {
     return Object.keys(next).length === 0;
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!validate()) return;
+    if (!validate() || isSubmitting) return;
 
-    const subject = encodeURIComponent(`Portfolio contact from ${form.name}`);
-    const body = encodeURIComponent(`${form.message}\n\n— ${form.name} (${form.email})`);
+    setIsSubmitting(true);
+    setSubmitError("");
 
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+    try {
+      const response = await fetch("https://formspree.io/f/maqaqdbq", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
 
-    setSent(true);
-    setForm({ name: "", email: "", message: "" });
+      if (!response.ok) {
+        throw new Error("Formspree rejected the submission");
+      }
 
-    setTimeout(() => setSent(false), 4000);
+      setSent(true);
+      setForm({ name: "", email: "", message: "" });
+    } catch {
+      setSubmitError("Your message couldn't be sent. Please try again or email me directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const fieldClass = (field) =>
@@ -56,8 +74,7 @@ export default function ContactForm({ theme }) {
   return (
     <form onSubmit={handleSubmit} className={`rounded-lg border p-6 sm:p-8 ${theme.border} ${theme.card}`}>
       <p className={`text-sm mb-5 ${theme.textBody}`}>
-        Open to internship and entry-level frontend roles — send a message and it&apos;ll open in
-        your mail client, prefilled and ready to send.
+        Open to internship and entry-level frontend roles — send me a message directly.
       </p>
 
       <div className="grid sm:grid-cols-2 gap-4">
@@ -107,13 +124,29 @@ export default function ContactForm({ theme }) {
         {errors.message && <p className="text-[11px] text-rose-500 mt-1">{errors.message}</p>}
       </div>
 
+      {submitError && (
+        <p className="mt-4 text-xs text-rose-500" role="alert">
+          {submitError}
+        </p>
+      )}
+      {sent && (
+        <p className="mt-4 text-xs text-emerald-500" role="status">
+          Your message was sent successfully. Thanks for reaching out!
+        </p>
+      )}
+
       <button
         type="submit"
+        disabled={isSubmitting}
         className={`mt-5 flex items-center gap-2 px-4 py-2 rounded-md text-xs font-semibold transition-colors ${theme.btnPrimary}`}
       >
         {sent ? (
           <>
-            <Check className="w-3.5 h-3.5" /> Message ready
+            <Check className="w-3.5 h-3.5" /> Message sent
+          </>
+        ) : isSubmitting ? (
+          <>
+            <Send className="w-3.5 h-3.5" /> Sending...
           </>
         ) : (
           <>
